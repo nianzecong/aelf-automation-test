@@ -16,4 +16,16 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\AElfChain.Common\AElfChain.Common.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="aelf\keys\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="config\*.dev.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\deployTestContract.sh" />
+    <Content Include="obj\do-deploy.sh" />
+  </ItemGroup>
 </Project>
