@@ -1,7 +1,28 @@
 # on-key deploy your contract with do-deploy-contract.sh
 
+Put your keys `.json `file to `AElf.Automation.FeatureVerification/aelf/keys/`.
 
-usage: 
+Copy `src/AElfChain.Common/config.nodes.json` to `AElf.Automation.FeatureVerification/config/`.
+
+All files with `.dev.json` suffix and `aelf/keys/*` was added in `.gitignore` .
+
+The file tree may like this:
+
+```shell
+AElf.Automation.FeatureVerification
+   |- aelf
+   |    |- keys
+   |        |-your-init-account-address.json
+   |        |-your-creator-account-address.json
+   |        |-your-member-account-address.json
+   |        |-your-author-account-address.json
+   |        |-your-outherAccount-account-address.json
+   |- config
+        |- node.local.dev.json
+
+```
+
+usage:
 
 ```shell
 > sh do-deploy-contract.sh 
@@ -28,6 +49,7 @@ export MainRpcUrl="http://127.0.0.1:8001"
 export SideRpcUrl="http://127.0.0.1:8001"
 export SideRpcUrl2="http://127.0.0.1:8001"
 export Type="Main"
+export NodesConfig="nodes.local.dev"
 
 export InitAccount="your-init-account-address"
 export Creator="your-creator-account-address"
@@ -97,8 +119,11 @@ export Author="your-author-account-address"
 	-c /Users/yourname/github/AElf-test/AElf.MyTestContract \
 	-f AElf.MyTestContract \
 	-p run \
+	# set type "update"
 	-t update \
+	# contractAddress required
 	-u 2LUmicHyH4RXrMjG4beDwuDsiWJESyLkgkwPdGTR8kahRzq5XS \
-	-v 1.0.0 
+	# set a new version
+	-v 1.0.1
 	
 ```
