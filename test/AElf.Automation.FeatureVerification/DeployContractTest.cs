@@ -758,6 +758,8 @@ namespace AElf.Automation.Contracts.ScenarioTest
             var contractFileName = GetEnv("contractFileName");
             var contractAddress = GetEnv("updateContractAddress");
 
+            Logger.Info($"update contract ${contractAddress}, contractFileName=${contractFileName}");
+            
             var author = Tester.GenesisService.GetContractAuthor(Address.FromBase58(contractAddress));
             Tester.TokenService.TransferBalance(InitAccount, author.ToBase58(), 10000_00000000, "STA");
             // var author = Address.FromBase58(InitAccount);
