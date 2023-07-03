@@ -14,8 +14,8 @@ skipParliamentChangeWhiteList="run"
 usage() {
     echo "Usage: $0 [-a automationDir] [-c contractDir] [-v contractVer] [-t type] [-f contractFileName] [-u updateContractAddress] [-g testClassName]"
     echo
-    echo " -a automationDir: The path to the automation directory."
-    echo " -c contractDir: The path to the contract directory."
+    echo " -a automationDir: The path to the automation Solution project directory."
+    echo " -c contractDir: The path to the contract Solution project directory."
     echo " -v contractVer: The contract version."
     echo " -t type: The type of operation, can be either 'deploy' or 'update'."
     echo " -f contractFileName: The name of the contract file. If not provided, the script will look for a DLL in the 'automationDir/bin/Debug/net6.0' directory."
