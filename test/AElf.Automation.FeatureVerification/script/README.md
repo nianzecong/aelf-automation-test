@@ -4,7 +4,7 @@ Put your keys `.json `file to `AElf.Automation.FeatureVerification/aelf/keys/`.
 
 Copy `src/AElfChain.Common/config.nodes.json` to `AElf.Automation.FeatureVerification/config/`.
 
-All files with `.dev.json` suffix and `aelf/keys/*` was added in `.gitignore` .
+All files with `.dev.json` or `.dev.sh` suffix and `aelf/keys/*` was added in `.gitignore` .
 
 The file tree may like this:
 
@@ -39,7 +39,7 @@ Usage: do-deploy-contract.sh [-a automationDir] [-c contractDir] [-v contractVer
 
 ```
 
-Write a new shell script `deploy-testContract-mainChain-test1.sh` that sets environment variables 
+Write a new shell script `deploy2mainChain-testNode-YourContract.dev.sh` in `./script` forder that sets environment variables 
 and invokes `do-deploy-contract.sh` to deploy your contract to aelf block chain.
 
 ```shell
@@ -90,8 +90,8 @@ export Author="your-author-account-address"
 
 ./do-deploy-contract.sh \
 	-a /Users/yourname/github/aelf-automation-test/test/AElf.Automation.FeatureVerification \
-	-c /Users/yourname/github/AElf-test/AElf.MyTestContract \
-	-f AElf.MyTestContract \
+	-c /Users/yourname/github/AElf-contract-project/AElf.Solution.YourTestContract \
+	-f AElf.YourTestContract \
 	-p run \
 	-v 1.0.0 \
 	-t deploy

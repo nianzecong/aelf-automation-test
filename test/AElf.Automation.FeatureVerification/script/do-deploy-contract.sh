@@ -56,7 +56,6 @@ if [[ "$type" == "update" && -z "$updateContractAddress" ]]; then
     usage
 fi
 
-deployFileName=${contractFileName}-${contractVer}
 
 # compile contract project
 echo ">>> start build contract..."
@@ -74,11 +73,12 @@ if [ ! -f "${contractDir}/bin/Release/net6.0/${contractFileName}.dll.patched" ];
     exit 1
 fi
 
+deployFileName=${contractFileName}-${contractVer}
+
 echo ">>> copy build dll file to $automationDir/bin/Debug/net6.0/"
 cp "${contractDir}"/bin/Release/net6.0/"${contractFileName}".dll.patched "${automationDir}"/bin/Debug/net6.0/${deployFileName}.dll
 
 echo ">>> copy build dll file to ~/.local/share/aelf/contracts"
-# shellcheck disable=SC2086
 cp "${contractDir}"/bin/Release/net6.0/${contractFileName}.dll.patched ~/.local/share/aelf/contracts/${deployFileName}.dll
 
 echo ">>> build success"
@@ -92,7 +92,7 @@ export updateContractAddress="$updateContractAddress"
 # Enter the automationDir project directory and execute different unit tests based on the input variable type.
 echo ""
 echo ""
-echo ">>> deploy to node via automation-test ..."
+echo ">>> deploy to node via aelf-automation-test ..."
 echo ">>> automationDir is $automationDir"
 
 cd "$automationDir" || exit
