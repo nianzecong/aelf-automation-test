@@ -35,7 +35,7 @@ Usage: do-deploy-contract.sh [-a automationDir] [-c contractDir] [-v contractVer
  -f contractFileName: The name of the contract file. If not provided, the script will look for a DLL in the 'automationDir/bin/Debug/net6.0' directory.
  -u updateContractAddress: (Optional) The contract address to update. This parameter is required when the type is 'update'.
  -g testClassName: (Optional) The name of the test class to run. If not provided, the script will use 'DeployContractTest' as the default.
- -p skipParliamentChangeWhiteList: (Optional) whether skip ParliamentChangeWhiteList, the script will use 'run' as the default.
+ -w skipParliamentChangeWhiteList: (Optional) whether skip ParliamentChangeWhiteList, the script will use 'run' as the default.
 
 ```
 
@@ -65,7 +65,7 @@ export Author="your-author-account-address"
 	# contract publish file name without dll suffix
 	-f YourContractBuildName-WithOut-dll-suffix \
 	# set "skip" to skip ParliamentChangeWhiteList
-	-p run \
+	-w run \
 	# contract version
 	-v 1.0.0 \
 	# "deploy" or "update"
@@ -92,7 +92,7 @@ export Author="your-author-account-address"
 	-a /Users/yourname/github/aelf-automation-test/test/AElf.Automation.FeatureVerification \
 	-c /Users/yourname/github/AElf-contract-project/AElf.Solution.YourTestContract \
 	-f AElf.YourTestContract \
-	-p run \
+	- run \
 	-v 1.0.0 \
 	-t deploy
 	
@@ -118,7 +118,7 @@ export Author="your-author-account-address"
 	-a /Users/yourname/github/aelf-automation-test/test/AElf.Automation.FeatureVerification \
 	-c /Users/yourname/github/AElf-test/AElf.MyTestContract \
 	-f AElf.MyTestContract \
-	-p run \
+	-w run \
 	# set type "update"
 	-t update \
 	# contractAddress required
