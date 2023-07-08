@@ -28,14 +28,16 @@ usage:
 > sh do-deploy-contract.sh 
 Usage: do-deploy-contract.sh [-a automationDir] [-c contractDir] [-v contractVer] [-t type] [-f contractFileName] [-u updateContractAddress] [-g testClassName]
 
- -a automationDir: The path to the automation directory.
- -c contractDir: The path to the contract directory.
+ -a automationDir: The path to the automation Solution project directory.
+ -c contractDir: The path to the contract Solution project directory.
  -v contractVer: The contract version.
- -t type: The type of operation, can be either 'deploy' or 'update'.
+ -t type: The type of operation, can be either deploy/update/proposalDeploy/proposalUpdate/deployCodeCheck/updateCodeCheck .
  -f contractFileName: The name of the contract file. If not provided, the script will look for a DLL in the 'automationDir/bin/Debug/net6.0' directory.
  -u updateContractAddress: (Optional) The contract address to update. This parameter is required when the type is 'update'.
+ -p proposalId: (Optional) Param is required when type is 'DeployCodeCheck' or 'UpdateCodeCheck'.
+ -h proposalHash: (Optional) Param is required when type is 'DeployCodeCheck' or 'UpdateCodeCheck'.
  -g testClassName: (Optional) The name of the test class to run. If not provided, the script will use 'DeployContractTest' as the default.
- -w skipParliamentChangeWhiteList: (Optional) whether skip ParliamentChangeWhiteList, the script will use 'run' as the default.
+ -w skipParliamentChangeWhiteList: (Optional) Set "skip" to skip ParliamentChangeWhiteList, the script will use 'run' as the default.
 
 ```
 
@@ -92,7 +94,7 @@ export Author="your-author-account-address"
 	-a /Users/yourname/github/aelf-automation-test/test/AElf.Automation.FeatureVerification \
 	-c /Users/yourname/github/AElf-contract-project/AElf.Solution.YourTestContract \
 	-f AElf.YourTestContract \
-	- run \
+	-w run \
 	-v 1.0.0 \
 	-t deploy
 	
