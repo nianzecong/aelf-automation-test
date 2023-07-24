@@ -31,7 +31,7 @@ Usage: do-deploy-contract.sh [-a automationDir] [-c contractDir] [-v contractVer
  -a automationDir: The path to the automation Solution project directory.
  -c contractDir: The path to the contract Solution project directory.
  -v contractVer: The contract version.
- -t type: The type of operation, can be either deploy/update/proposalDeploy/proposalUpdate/deployCodeCheck/updateCodeCheck .
+ -t type: The type of operation, can be either package/deploy/update/proposalDeploy/proposalUpdate/deployCodeCheck/updateCodeCheck .
  -f contractFileName: The name of the contract file. If not provided, the script will look for a DLL in the 'automationDir/bin/Debug/net6.0' directory.
  -u updateContractAddress: (Optional) The contract address to update. This parameter is required when the type is 'update'.
  -p proposalId: (Optional) Param is required when type is 'DeployCodeCheck' or 'UpdateCodeCheck'.

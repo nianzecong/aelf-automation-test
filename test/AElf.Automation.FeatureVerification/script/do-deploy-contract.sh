@@ -19,7 +19,7 @@ usage() {
     echo " -a automationDir: The path to the automation Solution project directory."
     echo " -c contractDir: The path to the contract Solution project directory."
     echo " -v contractVer: The contract version."
-    echo " -t type: The type of operation, can be either deploy/update/proposalDeploy/proposalUpdate/deployCodeCheck/updateCodeCheck ."
+    echo " -t type: The type of operation, can be either package/deploy/update/proposalDeploy/proposalUpdate/deployCodeCheck/updateCodeCheck ."
     echo " -f contractFileName: The name of the contract file. If not provided, the script will look for a DLL in the 'automationDir/bin/Debug/net6.0' directory."
     echo " -u updateContractAddress: (Optional) The contract address to update. This parameter is required when the type is 'update'."
     echo " -p proposalId: (Optional) Param is required when type is 'DeployCodeCheck' or 'UpdateCodeCheck'."
@@ -63,7 +63,7 @@ if [[ -z $automationDir || -z $contractDir || -z $contractVer || -z $type || -z 
 fi
 
 # Verify type
-supported_types=("deploy" "update" "proposalDeploy" "proposalUpdate" "deployCodeCheck" "updateCodeCheck")
+supported_types=("package" "deploy" "update" "proposalDeploy" "proposalUpdate" "deployCodeCheck" "updateCodeCheck")
 is_valid_type=false
 for valid_type in "${supported_types[@]}"
 do
@@ -143,6 +143,11 @@ echo ">>> copy build dll file to ~/.local/share/aelf/contracts"
 cp "${contractDir}"/bin/Release/net6.0/${contractFileName}.dll.patched ~/.local/share/aelf/contracts/${deployFileName}.dll
 
 echo ">>> build success"
+
+if [[ "$type" == "package" ]]; then
+  open ~/.local/share/aelf/contracts
+  exit 0;
+fi
 
 
 # set environment variable used by test methods
