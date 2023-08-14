@@ -145,6 +145,7 @@ cp "${contractDir}"/bin/Release/net6.0/${contractFileName}.dll.patched ~/.local/
 echo ">>> build success"
 
 if [[ "$type" == "package" ]]; then
+  echo ">>> open ~/.local/share/aelf/contracts"
   open ~/.local/share/aelf/contracts
   exit 0;
 fi
